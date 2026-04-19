@@ -745,3 +745,39 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+.avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 1; /* Đảm bảo nằm trên các hiệu ứng nền */
+    margin-left: 20px; /* Thụt lề một chút khỏi text */
+}
+.avatar-image {
+    width: 320px; /* Điều chỉnh kích thước đường kính ảnh */
+    height: 320px;
+    border-radius: 50%; /* Làm ảnh thành hình tròn */
+    object-fit: cover; /* Tránh méo ảnh */
+    border: 10px solid white; /* Tạo viền trắng đệm bên trong */
+    display: block;
+}
+.avatar-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -15px; /* Đẩy ra ngoài ảnh 1 chút */
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00ffff 0%, #0000ff 100%); /* Chuyển màu từ cyan sang blue */
+    z-index: -2; /* Nằm dưới cùng */
+}
+.avatar-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -8px; /* Đẩy ra ngoài ảnh 1 chút nhưng nhỏ hơn gradient */
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 2px dashed white; /* Border đứt nét trắng */
+    z-index: -1; /* Nằm giữa gradient và ảnh */
+}
